@@ -1,0 +1,14 @@
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.box_padd {
+  text-align: center;
+  margin: 10px;
+  box-sizing: border-box;
+  min-width: 300px;
+  max-width: 300px;
+}
+.box_padd:nth-child(2n + 1) {
+  background-color: rgb(249, 255, 218);
+}
