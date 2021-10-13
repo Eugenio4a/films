@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./Main.module.css";
+import { Link } from "react-router-dom";
 function Main() {
   const [films, setFilms] = useState([]);
   const [genres, setGenres] = useState([]);
@@ -21,15 +22,22 @@ function Main() {
     <div className={styles.flex}>
       {films.map((film) => (
         <div className={styles.box_padd} key={film.id}>
-          <img
-            src={`https://image.tmdb.org/t/p/w154/${film.poster_path}`}
-            width="220"
-            height="70%"
-          />
-          <h2>{film.original_title}</h2>
+          <Link to={`/film/${film.id}`}>
+            <img
+              className={styles.image_full}
+              src={`https://image.tmdb.org/t/p/w154/${film.poster_path}`}
+              width="220"
+              height="70%"
+            />
+          </Link>
+          <h2>{film.title}</h2>
+          <p>Release: {film.release_date}</p>
+          <Link to={`/cart/${film.id}`}>
+            <button>Add to favorites</button>
+          </Link>
 
           <p>
-            {genres.map((genre, film) => {
+            {genres.map((genre) => {
               {
                 <span>{genre.name}</span>;
               }

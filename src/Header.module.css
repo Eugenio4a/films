@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  padding: 25px;
+  background-color: rgb(120, 217, 255);
+}
+
+.search_input {
+  border: none;
+  width: 200px;
+  height: 30px;
+  padding: 0 10px;
+  background-color: aliceblue;
+}
+.cart {
+  font-size: 24px;
+  cursor: pointer;
+}
