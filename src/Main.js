@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import styles from "./Main.module.css";
 import { Link } from "react-router-dom";
-function Main() {
+function Main({ search, favorites, setFavorites }) {
   const [films, setFilms] = useState([]);
-  const [genres, setGenres] = useState([]);
+  // const [genres, setGenres] = useState([]);
+
+  console.log(favorites);
   useEffect(() => {
     const apiKey =
       "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=784670b75891833569bbe2ab5bd3808c";
@@ -11,13 +13,13 @@ function Main() {
       .then((response) => response.json())
       .then((movieInfo) => setFilms(movieInfo.results));
   }, []);
-  useEffect(() => {
-    fetch(
-      "https://api.themoviedb.org/3/genre/movie/list?api_key=784670b75891833569bbe2ab5bd3808c"
-    )
-      .then((response) => response.json())
-      .then((genre) => setGenres(genre.genres));
-  }, []);
+  // useEffect(() => {
+  //   fetch(
+  //     "https://api.themoviedb.org/3/genre/movie/list?api_key=784670b75891833569bbe2ab5bd3808c"
+  //   )
+  //     .then((response) => response.json())
+  //     .then((genre) => setGenres(genre.genres));
+  // }, []);
   return (
     <div className={styles.flex}>
       {films.map((film) => (
@@ -32,17 +34,18 @@ function Main() {
           </Link>
           <h2>{film.title}</h2>
           <p>Release: {film.release_date}</p>
-          <Link to={`/cart/${film.id}`}>
-            <button>Add to favorites</button>
-          </Link>
 
-          <p>
+          <button onClick={() => setFavorites([...favorites, film])}>
+            Add to favorites
+          </button>
+
+          {/* <p>
             {genres.map((genre) => {
               {
                 <span>{genre.name}</span>;
               }
             })}
-          </p>
+          </p> */}
         </div>
       ))}
     </div>

@@ -1,12 +1,15 @@
 import styles from "./Header.module.css";
-
-export default function Header() {
+import { Link } from "react-router-dom";
+export default function Header({ setSearch }) {
   return (
     <>
       <div className={styles.header}>
-        <span className={styles.cart}>Favorite movies</span>
+        <Link to="/cart">
+          <span className={styles.cart}>Favorite movies</span>
+        </Link>
 
         <input
+          onChange={(event) => console.log(setSearch(event.target.value))}
           className={styles.search_input}
           type="text"
           placeholder="Search movie"

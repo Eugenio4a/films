@@ -1,21 +1,22 @@
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-export default function Cart() {
-  const { id } = useParams();
-  const [cart, setCart] = useState({});
-  useEffect(() => {
-    const apiKey = `https://api.themoviedb.org/3/movie/${id}?api_key=784670b75891833569bbe2ab5bd3808c`;
-    fetch(apiKey)
-      .then((response) => response.json())
-      .then((cartMovie) => setCart(cartMovie));
-  }, []);
+export default function Cart({ favorites, setFavorites }) {
+  function deleteFilm(filmToDelete) {
+    const newArrFilms = favorites.filter((film) => film.id !== filmToDelete.id);
+    setFavorites(newArrFilms);
+  }
   return (
     <>
-      <Link to="/main">Go to main</Link>
-      <div>
-        {cart.title}
-        <button>Detete from cart</button>
+      <Link to="/">Go to main</Link>
+      <div style={{ display: "flex" }}>
+        {favorites.map((film) => (
+          <div key={film.id} style={{ padding: "10px" }}>
+            <img src={`https://image.tmdb.org/t/p/w154/${film.poster_path}`} />
+            <h4>{film.title}</h4>
+            <button onClick={() => deleteFilm(film)}>Detete from cart</button>
+          </div>
+        ))}
       </div>
     </>
   );

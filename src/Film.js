@@ -26,7 +26,7 @@ function Film() {
           <p>Release: {film.release_date}</p>
           <p>Budget: {film.budget} $</p>
 
-          <Link to="/main">
+          <Link to="/">
             <button>Go home</button>
           </Link>
         </div>
