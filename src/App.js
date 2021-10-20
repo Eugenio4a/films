@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "./Header";
 import Main from "./Main";
 import Film from "./Film";
-import Cart from "./Cart";
+import FaviroteFilms from "./FaviroteFilms";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 export default function App() {
   const [search, setSearch] = useState([]);
@@ -22,7 +22,7 @@ export default function App() {
         <Film />
       </Route>
       <Route path="/cart">
-        <Cart favorites={favorites} setFavorites={setFavorites} />
+        <FaviroteFilms favorites={favorites} setFavorites={setFavorites} />
       </Route>
     </Router>
   );

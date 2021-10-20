@@ -9,7 +9,7 @@ export default function Header({ setSearch }) {
         </Link>
 
         <input
-          onChange={(event) => console.log(setSearch(event.target.value))}
+          onChange={(event) => setSearch(event.target.value)}
           className={styles.search_input}
           type="text"
           placeholder="Search movie"
