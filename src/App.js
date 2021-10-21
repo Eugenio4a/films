@@ -10,7 +10,7 @@ export default function App() {
 
   return (
     <Router>
-      <Header setSearch={setSearch} />
+      <Header setSearch={setSearch} favorites={favorites} />
       <Route exact path="/">
         <Main
           search={search}
@@ -21,7 +21,7 @@ export default function App() {
       <Route path="/film/:id">
         <Film />
       </Route>
-      <Route path="/cart">
+      <Route path="/favorites">
         <FaviroteFilms favorites={favorites} setFavorites={setFavorites} />
       </Route>
     </Router>
