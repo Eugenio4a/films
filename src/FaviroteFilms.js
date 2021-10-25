@@ -16,6 +16,7 @@ export default function favoriteFilms({ favorites, setFavorites }) {
               >
                 <img
                   src={`https://image.tmdb.org/t/p/w154/${film.poster_path}`}
+                  alt="Poster"
                 />
                 <h4>
                   {film.title.length > 15

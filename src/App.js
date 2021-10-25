@@ -8,6 +8,11 @@ export default function App() {
   const [search, setSearch] = useState([]);
   const [favorites, setFavorites] = useState([]);
 
+  useEffect(() => {
+    if (localStorage.getItem("movies")) {
+      setFavorites(JSON.parse(localStorage.getItem("movies")));
+    }
+  }, []);
   return (
     <Router>
       <Header setSearch={setSearch} favorites={favorites} />

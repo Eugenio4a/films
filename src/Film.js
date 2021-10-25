@@ -6,11 +6,11 @@ function Film() {
   const [film, setFilm] = useState({});
   const { id } = useParams();
   useEffect(() => {
-    const apiKey = `https://api.themoviedb.org/3/movie/${id}?api_key=784670b75891833569bbe2ab5bd3808c`;
-    fetch(apiKey)
+    const apiKey = `784670b75891833569bbe2ab5bd3808c`;
+    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`)
       .then((response) => response.json())
       .then((oneMovieInfo) => setFilm(oneMovieInfo));
-  }, []);
+  }, [id]);
   return (
     <>
       <div className={styles.film_box}>
@@ -18,6 +18,7 @@ function Film() {
           <img
             src={`https://image.tmdb.org/t/p/w154/${film.poster_path}`}
             width="250"
+            alt="film poster"
           />
         </div>
         <div className={styles.film_box_description}>
