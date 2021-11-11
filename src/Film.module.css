@@ -1,0 +1,8 @@
+.film_box {
+  display: flex;
+  width: 60%;
+  margin: 0 auto;
+}
+.film_box_description {
+  padding: 20px;
+}

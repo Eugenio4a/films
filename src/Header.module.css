@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  background-color: rgb(120, 217, 255);
+}
+
+.search_input {
+  border: none;
+  width: 200px;
+  height: 30px;
+  padding: 0 10px;
+  background-color: aliceblue;
+}
+.cart {
+  font-size: 24px;
+  background-color: rgb(236, 248, 204);
+
+  padding: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.headerFavorite > a {
+  text-decoration: none;
+  padding: 0px 20px;
+}
